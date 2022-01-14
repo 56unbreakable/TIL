@@ -161,14 +161,14 @@
 
 + git init : 현재 작업중인 디렉토리를 Git으로 관리한다는 명령어
 
-  `$ git init`
+  `git init`
 
   + 이미 Git 저장소인 폴더 내에 또 다른 Git 저장소를 만들지 않아야함
   + 홈 디렉토리에서 git init을 하지 않아야함.
 
 + git status : 워킹 디렉토리와 스태이징 에어리어에 있는 파일의 현재 상태를 알려줌
 
-  `$ git status`
+  `git status`
 
   + tracked : git이 관리하는 파일
   + modified : 수정되었지만 반영되지 않은 상태
@@ -176,13 +176,13 @@
 
 + git add : 워킹 디렉토리의 파일을 스테이징 에어리어에 올리는 명령어
 
-  `$ git add 파일명 혹은 폴더이름`
+  `git add 파일명 혹은 폴더이름`
 
   + git이 해당 파일을 추적 관리할 수 있도록 만들어줌.
 
 + git commit : staging area에 올라온 파일의 변경사항을 하나의 버전으로 저장하는 명령어
 
-  `$ git commit -m "저장할 메세지"`
+  `git commit -m "저장할 메세지"`
 
 + git log : 커밋의 내역을 조회할 수 있는 명령어
 
@@ -198,17 +198,17 @@
 
   1. 원격 저장소 등록
 
-     `$ git remote add 이름 주소`
+     `git remote add 이름 주소`
 
      원격 저장소 주소를 어떠한 이름으로 저장
 
   2.  원격 저장소 조회
 
-     `$ git remote -v`
+     `git remote -v`
 
   3. 원격 저장소 연결 삭제
 
-     `$ git remote rm 이름`
+     `git remote rm 이름`
 
 
 
@@ -218,11 +218,11 @@
 
 2. git push : 커밋 생성후 원격 저장소에 업로드하는 명령어
 
-   `$ git push origin master`
+   `git push origin master`
 
    ```
-   $ git push -u origin master
-   $ git push
+   git push -u origin master
+   git push
    ```
 
    `-u` 옵션을 사용하면 두 번째 커밋부터는 저장소 이름, 브랜치 이름을 생략함

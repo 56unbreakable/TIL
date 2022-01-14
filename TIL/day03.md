@@ -20,7 +20,7 @@ __2. 제목과 본문을 빈 행으로 분리__
 
 + 커밋 메세지 템플릿을 작성한 이후(나의 경우는 .gitmessage.txt 로 작성)
 
-  `$ git config --global commit.template <.gitmessage.txt 경로>`
+  `git config --global commit.template <.gitmessage.txt 경로>`
 
   다음과 같은 코드를 사용해 추가한다.
 
@@ -49,7 +49,7 @@ __2. 제목과 본문을 빈 행으로 분리__
 
 + 커밋을 할 경우에는 다음 명령어를 사용한다
 
-  `$ git commit`
+  `git commit`
 
   commit만 사용하면 vim에 진입하게된다. vim에서는 앞서 작성한 메세지 템플릿이 나타난다.
 
@@ -57,7 +57,7 @@ __2. 제목과 본문을 빈 행으로 분리__
 
   esc를 누르고 다음 명령어를 사용한다.
 
-  `$ :wq`
+  `:wq`
 
 + 만약 esc로 메세지 편집에서 빠져나온 경우에 다시 메세지를 작성하려면 'i'를 누른다.
 
@@ -91,7 +91,7 @@ __11. 팀에서 정한 commit 규칙을 따르자__
 
 + 커밋 로그를 보기 위한 명령어
 
-  `$ git log --oneline`
+  `git log --oneline`
 
 커밋을 했던 로그를 다시 되돌리고 싶을 때 git reset을 사용한다
 
@@ -101,9 +101,9 @@ __11. 팀에서 정한 commit 규칙을 따르자__
 git reset은 --soft, --mixed, --hard 의 3가지 기능이있다.
 
 ```
-$ git reset --soft [commit id]
-$ git reset --mixed [commit id]
-$ git reset --hard [commit id]
+git reset --soft [commit id]
+git reset --mixed [commit id]
+git reset --hard [commit id]
 ```
 
 1. soft
@@ -134,13 +134,13 @@ $ git reset --hard [commit id]
 
 + 삭제된 git 로그를 볼 수 있는 명령어
 
-  `$ git reflog`
+  `git reflog`
 
   해당 명령어를 사용하면 삭제된 깃 로그를 모두 확인할 수 있다.
 
 + git reflog를 사용하여 확인한 git id를 사용해 원래대로 커밋을 되돌릴 수 있다.
-  1. `$ git reflow` 명령어로 삭제된 commit id 확인 후
-  2. `$ git reset --hard [commit id]` 
+  1. `git reflow` 명령어로 삭제된 commit id 확인 후
+  2. `git reset --hard [commit id]` 
 
 
 
@@ -148,7 +148,7 @@ $ git reset --hard [commit id]
 
 + 취소하고 싶은 커밋을 지웠다는 커밋을 추가하는 명령어.
 
-  `$ git revert [취소하고싶은 commit id]`
+  `git revert [취소하고싶은 commit id]`
 
 + reset과의 차이점.
 
@@ -161,3 +161,24 @@ $ git reset --hard [commit id]
   5. reset을 통해서 commit을 삭제하면 github에 push했을때 혼동이 생기지만 revert는 새로운 commit을 추가하면서 특정 commit을 지우는 것이기 때문에 혼동이 생기지 않음
   6. 즉, 특정 commit을 지웠다고 선언하는 것.
 
+
+
+## branch
+
+branch는 git 을 사용하면서 master에 코드를 새로운 갈래로 만들어서 사용하는 것이다. master에서 branch가 나오면 branch에서 어떤 테스트를 실행하더라도 master에는 영향을 주지 않는다. `git log --oneline` 으로 확인했을 때 head가 가리키는 곳이 현재 작업중인 branch이다.
+
++ branch를 조회하는 명령어
+
+  `git branch`
+
++ branch를 만드는 명령어
+
+  `git branch hotfix`
+
++ 작업 중인 branch를 이동
+
+  `git switch [branch name]`
+
+  작업 중인 branch를 이동하면 git graph에 나오는 커밋으로 이동하게된다.
+
++ 
