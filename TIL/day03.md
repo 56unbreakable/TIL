@@ -87,7 +87,9 @@ __11. 팀에서 정한 commit 규칙을 따르자__
 
 
 
-## git reset
+## git reset / revert
+
+### git reset
 
 + 커밋 로그를 보기 위한 명령어
 
@@ -126,10 +128,6 @@ git reset --hard [commit id]
 
   다른 사람들도 코드를 공유할 수 있기 때문에 다른 로컬 저장소와 원격 저장소와의 차이가 발생할 수 있기 때문이다.
 
-
-
-## git revert
-
 ### git reflog
 
 + 삭제된 git 로그를 볼 수 있는 명령어
@@ -141,8 +139,6 @@ git reset --hard [commit id]
 + git reflog를 사용하여 확인한 git id를 사용해 원래대로 커밋을 되돌릴 수 있다.
   1. `git reflow` 명령어로 삭제된 commit id 확인 후
   2. `git reset --hard [commit id]` 
-
-
 
 ### git revert
 
@@ -167,6 +163,10 @@ git reset --hard [commit id]
 
 branch는 git 을 사용하면서 master에 코드를 새로운 갈래로 만들어서 사용하는 것이다. master에서 branch가 나오면 branch에서 어떤 테스트를 실행하더라도 master에는 영향을 주지 않는다. `git log --oneline` 으로 확인했을 때 head가 가리키는 곳이 현재 작업중인 branch이다.
 
+즉, branch는 평행우주 같은 개념이다. 서로에게 영향을 주지 않는다.
+
+### 1. branch의 조회, 생성, 이동
+
 + branch를 조회하는 명령어
 
   `git branch`
@@ -179,6 +179,48 @@ branch는 git 을 사용하면서 master에 코드를 새로운 갈래로 만들
 
   `git switch [branch name]`
 
-  작업 중인 branch를 이동하면 git graph에 나오는 커밋으로 이동하게된다.
+  브랜치를 생성함과 동시에 이동
 
-+ 
+  `git switch -c [branch name]`
+
+  작업 중인 branch를 이동하면 [branch name]에 해당하는 branch로 head가 이동한다.
+
++ 현재 head가 가리키는 branch
+
+  + 코드를 수정하면 현재 head가 가리키는 branch만 수정된다. 다른 branch는 수정되지 않는다.
+  + ![image-20220114162935426](day03.assets/image-20220114162935426.png)
+  + 현재 그림상에서 hotfix에 head가 있다. branch를 생성하면 다음과 같이 분기가 생긴다.
+
+### 2. branch의 병합
+
+나눈 branch는 언젠가는 병합을 해야한다. branch 병합은 다음과 같다.
+
++ branch를 병합하는 명령어
+
+  `git merge [branch name]`
+
+  주의할 점은 branch name에 작성한 branch를 head가 가리키고 있을 경우 병합이 되지 않는다.
+
++ 이 상황에서 `git status`를 사용하면 병합되는 branch의 수정된 사항이 모두 반영된다.
+
++ merge를 하고 난 이후 pull과같은 3가지 상황이 발생하는데, 이때 변경사항을 add, commit해야한다. 
+
++ commit을 하면 다음과 같이 branch가 병합된다
+
++ ![image-20220114163509986](day03.assets/image-20220114163509986.png)
+
++ 터미널에서 그래프 보기
+
+  `git log --oneline --graph`
+
+### 3. branch 삭제
+
+병합이 끝난 branch는 더 이상 필요가 없기 때문에 삭제해주는 것이 좋다.
+
++ branch 삭제
+
+  `git branch -d [branch name]`
+
++ ![image-20220114164022313](day03.assets/image-20220114164022313.png)
+
++ 그림과 같이 hotfix가 사라지게된다. 그러나 branch를 만들고 merge한 기록은 남아있게된다.
