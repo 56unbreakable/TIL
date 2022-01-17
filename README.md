@@ -9,4 +9,6 @@
 
 [day 3. git branch 관리](https://github.com/56unbreakable/TIL/blob/master/TIL/day03.md)
 
-[day 4.](https://github.com/56unbreakable/TIL/blob/master/TIL/day04.md)
+[day 4. numpy, pandas](https://github.com/56unbreakable/TIL/blob/master/TIL/day04.md)
+
+[day 5. ](https://github.com/56unbreakable/TIL/blob/master/TIL/day05.md)
