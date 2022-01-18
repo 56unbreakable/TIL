@@ -11,4 +11,4 @@
 
 [day 4. numpy, pandas](https://github.com/56unbreakable/TIL/blob/master/TIL/day04.md)
 
-[day 5. ](https://github.com/56unbreakable/TIL/blob/master/TIL/day05.md)
+[day 5. 데이터 살펴보기, 데이터 분석, 데이터 시각화 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day05.md)
