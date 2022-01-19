@@ -152,7 +152,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
 
   ```python
   import csv
-  f = open('c:/sh/study/study everyday/data files/seoul.csv','r',encoding='cp949')
+  f = open('파일경로/파일이름','r',encoding='cp949')
   data = csv.reader(f, delimiter = ',')
   print(data)
   f.close()
@@ -166,7 +166,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
 
   ```python
   import csv
-  f = open('c:/sh/study/study everyday/data files/seoul.csv','r',encoding='cp949')
+  f = open('파일경로/파일이름','r',encoding='cp949')
   data = csv.reader(f, delimiter = ',')
   for i in data:
       print(i)
@@ -179,7 +179,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
 
   ```python
   import csv
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   header = next(data)
   print(header)
@@ -192,7 +192,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
 
   ```python
   import csv
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   header = next(data)
   for i in data:
@@ -230,7 +230,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
   데이터를 불러온 후, 헤더를 저장하고 `for`문을 이용하여 데이터만을 출력한다. 찾고자 하는 데이터는 `[-1]`번째 열이다.
 
   ```python
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   header = next(data)
   for row in data:
@@ -253,7 +253,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
   import csv
   max_temp = -999
   max_date = ''
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   header = next(data)
   for row in data:
@@ -419,7 +419,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
 
   ```python
   import csv
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   next(data)
   result = [] 
@@ -478,7 +478,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
   import csv
   max_result = [] 
   min_result = []
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   next(data)
   for row in data :
@@ -528,7 +528,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
   import csv
   import matplotlib.pyplot as plt
   result = [] 
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   next(data)
   for row in data:
@@ -553,7 +553,7 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
   import matplotlib.pyplot as plt
   aug = []
   jan = [] 
-  f = open('c:/sh/study/study everyday/data files/seoul.csv')
+  f = open('파일경로/파일이름')
   data = csv.reader(f)
   next(data)
   for row in data:
@@ -572,3 +572,4 @@ object 타입의 데이터는 산술정보를 계산하지 않는다. 산술데�
   ```
 
   ![image-20220118173429604](day05.assets/image-20220118173429604.png)
+
