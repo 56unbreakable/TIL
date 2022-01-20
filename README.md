@@ -14,3 +14,5 @@
 [day 5. 데이터 살펴보기, 데이터 분석, 데이터 시각화 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day05.md)
 
 [day 6. 공공데이터분석, seaborn 패키지 실습 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day06.md)
+
+[day 7. folium 라이브러리, html 기본 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day07.md)
