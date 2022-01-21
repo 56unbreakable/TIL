@@ -1,5 +1,9 @@
+header{
+    color:red;
+}
+
 h1{
-    color : red;
+    color : blue;
 }
 
 #bg{
@@ -12,4 +16,23 @@ h1{
 
 .color{
     color : blue;
+}
+.place{
+    width : 500px;
+    height : 500px;
+    background-color: yellow;
+}
+.font{
+    font-size :50px;
+    font-family: Arial,Times,sans-seriff;
+    font-style: italic;
+    font-weight: bold;
+}
+.background{
+    width : 500px;
+    height : 500px;    
+    background-color: yellow;
+    background-image: url("mountain.png");
+    background-repeat: no-repeat;
+    background-position: left;
 }
