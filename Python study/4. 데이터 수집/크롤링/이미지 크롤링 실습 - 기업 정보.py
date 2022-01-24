@@ -8,6 +8,16 @@ res.raise_for_status()
 
 bs_obj = bs4.BeautifulSoup(res.text,"html.parser")
 
-table = bs_obj.find("table")
-headline = table.find("thead")
-print(headline.text)
+tbody = bs_obj.find("tbody")
+tr = tbody.findAll("tr")
+
+data = [[] for i in range(len(tr))]
+
+for i in range(len(tr)):
+    td = tr[i].findAll("td")
+    for s in range(len(td)):
+        data[i].append(td[s].text.strip())
+
+for i in range(len(data)):
+    print(data[i])
+    

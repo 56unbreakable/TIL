@@ -1,9 +1,5 @@
 import requests
-from urllib.request import URLError
-from urllib.request import urlopen
-from urllib.request import HTTPError
 import bs4
-from sympy import source
 
 for i in range(5):
     year = 2021 - i 
