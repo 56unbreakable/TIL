@@ -20,3 +20,5 @@
 [day 8. 웹 크롤링 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day08.md)
 
 [day 9. 웹 크롤링 2 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day09.md)
+
+[day 10. 사이트 자동화 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day10.md)
