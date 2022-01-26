@@ -143,54 +143,57 @@ finally:
 
 ### 네이버 항공권 자동예약 시스템
 
-#### 전체 코드
-
 ```python
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import time
 
 url = 'https://flight.naver.com/'
-driver = webdriver.Chrome("C:/sh/study/Study Everyday/chromedriver.exe")
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 try:
     driver.get(url)
     time.sleep(1)
-    # 출발지 선택
+    # 출발지 선택 xpath로 출발지 선택 버튼을 찾고 검색창에 '인천'을 입력 후 원하는 공항 클릭
     driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[4]/div/div/div[2]/div[1]/button[1]').click()
     driver.find_element_by_class_name('autocomplete_input__1vVkF').send_keys("인천")
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element_by_class_name('autocomplete_search_item__2WRSw').click()
-    time.sleep(2)
     
-    # 도착지 선택
+    # 도착지 선택 xpath로 도착지 선택 버튼을 찾고 검색창에 '파리'을 입력 후 원하는 공항 클릭
     driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[4]/div/div/div[2]/div[1]/button[2]').click()
     driver.find_element_by_class_name('autocomplete_input__1vVkF').send_keys("파리")
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element_by_class_name('autocomplete_search_item__2WRSw').click()
-    time.sleep(2)
 
-    # 가는날 선택
+    # 가는날 선택 xpath로 가는날 선택후 xpath로 가는 날짜 선택
     driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[4]/div/div/div[2]/div[2]/button[1]').click()
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[10]/div[2]/div[1]/div[2]/div/div[2]/table/tbody/tr[5]/td[7]/button').click()
     time.sleep(2)
     
-    # 오는날 선택
+    # 오는날 선택 xpath로 오는날짜 선택
     driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[10]/div[2]/div[1]/div[2]/div/div[3]/table/tbody/tr[2]/td[5]/button').click()
-    time.sleep(2)
 
-    # 항공권 검색
-    driver.find_element_by_class_name('searchBox_search__2KFn3').click()
-    time.sleep(20)
+    # 항공권 검색 xpath로 항공권 검색 버튼 클릭
+    driver.find_element_by_xpath('//*[@id="__next"]/div/div[1]/div[4]/div/div/button').click()
+
+	# selector를 이용해서 특정 요소가 나올때까지, 모든 로딩이 다 끝날때까지 기다림
+    WebDriverWait(driver, 50).until(EC.visibility_of_all_elements_located((By.CSS_SELECTOR , '#__next > div > div.container > div.List_content > div > div.concurrent_ConcurrentList__1EKaB > div:nth-child(1) > div')))
+    driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+
+    # 최저가 검색 selector를 사용해 원하는 부분 크롤링
+    airplane = driver.find_element_by_css_selector("#__next > div > div.container > div.List_content > div > div.concurrent_ConcurrentList__1EKaB > div:nth-child(1) > div")
     
-
-    # 최저가 검색
-
 except Exception as e:
     print(e)
 
-while True:
-    pass
+finally :
+    print(airplane.text)
+
 ```
 
 
