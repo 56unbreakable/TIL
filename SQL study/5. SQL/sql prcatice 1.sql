@@ -1,15 +1,14 @@
-USE employees;
+USE sqldb;
 
-# select문 연습
-# select first_name, last_name, gender from employees;
-#salary, to_date from salaries; 
+# 테이블 조회
+SELECT * FROM usertbl;
+SELECT * FROM buytbl;
 
-# 전체 데이터베이스 정보 확인
-# show table status;
+# WHERE절 사용
+SELECT * FROM usertbl WHERE name = '김경호';
 
-# 특정 데이터베이스 정보 확인
-# describe employees;
+# 관계연산자 사용
+SELECT userID, Name FROM usertbl WHERE birthday > 1970 AND height > 182;
 
-# 별칭 설정
-# select first_name as 이름, gender 성별, hire_date '회사 입사일' from employees;
-select emp_no 번호, birth_date 생일 from employees;
+# WHERE 뒤에 오는 구문들
+SELECT userID, Name FROM usertbl WHERE height BETWEEN 180 AND 183;
