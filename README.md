@@ -23,4 +23,6 @@
 
 [day 10. 사이트 자동화 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day10.md)
 
-[day 11. SQL ](https://github.com/56unbreakable/TIL/blob/master/TIL/day11.md)
+[day 11. 데이터베이스 생성 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day11.md)\
+
+[day 12. SQL ](https://github.com/56unbreakable/TIL/blob/master/TIL/day12.md)
