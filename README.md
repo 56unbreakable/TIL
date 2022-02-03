@@ -25,4 +25,6 @@
 
 [day 11. 데이터베이스 생성 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day11.md)\
 
-[day 12. SQL ](https://github.com/56unbreakable/TIL/blob/master/TIL/day12.md)
+[day 12. SQL 기본쿼리](https://github.com/56unbreakable/TIL/blob/master/TIL/day12.md)
+
+[day 13. SQL2 쿼리, 조인, 파이썬으로 데이터베이스 조작](https://github.com/56unbreakable/TIL/blob/master/TIL/day13.md)
