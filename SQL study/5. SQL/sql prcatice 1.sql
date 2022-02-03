@@ -65,3 +65,5 @@ UPDATE buytbl SET price = price * 1.5;
 # 데이터 삭제
 SELECT count(*) FROM testtbl4 WHERE Fname = 'Aamer';
 DELETE FROM testtbl4 WHERE Fname = 'Aamer';
+
+SELECT * FROM usertable;
