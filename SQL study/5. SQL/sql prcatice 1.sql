@@ -1,8 +1,13 @@
 USE sqldb;
 
+CREATE TABLE IF NOT EXISTS dada (idx int NOT NULL PRIMARY KEY,companyName CHAR(15), date char(12), cp char(7), ade CHAR(7), mp CHAR(7), hp CHAR(7), rp char(7), tv char(8));
+
 # 테이블 조회
 SELECT * FROM usertbl;
 SELECT * FROM buytbl;
+
+SELECT count(*) FROM company_info;
+SELECT * FROM daily_price;
 
 # WHERE절 사용
 SELECT * FROM usertbl WHERE name = '김경호';
