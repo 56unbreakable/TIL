@@ -28,3 +28,5 @@
 [day 12. SQL 기본쿼리](https://github.com/56unbreakable/TIL/blob/master/TIL/day12.md)
 
 [day 13. SQL2 쿼리, 조인, 파이썬으로 데이터베이스 조작](https://github.com/56unbreakable/TIL/blob/master/TIL/day13.md)
+
+[day 14. 네이버 주가정보 크롤링 프로젝트](https://github.com/56unbreakable/TIL/blob/master/TIL/day14.md)
