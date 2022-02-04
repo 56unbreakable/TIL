@@ -67,3 +67,5 @@ SELECT count(*) FROM testtbl4 WHERE Fname = 'Aamer';
 DELETE FROM testtbl4 WHERE Fname = 'Aamer';
 
 SELECT * FROM usertable;
+
+create DATABASE INVESTAR;

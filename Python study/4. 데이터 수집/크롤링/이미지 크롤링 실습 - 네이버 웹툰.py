@@ -2,6 +2,7 @@ import requests
 import bs4
 
 url = "https://comic.naver.com/webtoon/list?titleId=786537"
+
 res = requests.get(url)
 res.raise_for_status()
 
@@ -14,3 +15,4 @@ for row in rate:
     star.append(row.strong.text)
 
 print(star)
+print(soup)
