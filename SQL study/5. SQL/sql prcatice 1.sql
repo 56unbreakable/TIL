@@ -75,6 +75,7 @@ SELECT * FROM usertable;
 SELECT count(*) FROM company_info;
 SELECT * FROM company_info;
 SELECT * FROM daily_price;
-SELECT max(idx) FROM daily_price;
-SELECT * FROM daily_price2;
+SELECT * FROM daily_price;
+SELECT count(*) FROM daily_price ;
 
+SELECT * from daily_price2 WHERE companyName = 'DL' and date >= '2020-11-25' AND date <= '2020-12-04';
