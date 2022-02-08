@@ -6,9 +6,6 @@ CREATE TABLE IF NOT EXISTS dada (idx int NOT NULL PRIMARY KEY,companyName CHAR(1
 SELECT * FROM usertbl;
 SELECT * FROM buytbl;
 
-SELECT count(*) FROM company_info;
-SELECT * FROM daily_price;
-
 # WHERE절 사용
 SELECT * FROM usertbl WHERE name = '김경호';
 
@@ -73,4 +70,11 @@ DELETE FROM testtbl4 WHERE Fname = 'Aamer';
 
 SELECT * FROM usertable;
 
-create DATABASE INVESTAR;
+
+# 네이버 주가정보 크롤링
+SELECT count(*) FROM company_info;
+SELECT * FROM company_info;
+SELECT * FROM daily_price;
+SELECT max(idx) FROM daily_price;
+SELECT * FROM daily_price2;
+
