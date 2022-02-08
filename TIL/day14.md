@@ -504,7 +504,7 @@ for row in range(len(comp_data)):
     for p in range(page):
         for i in range(10):
             st.useQuery("INSERT INTO {} VALUES({}, '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".
-                format(table2, idx, comp_data[row][0], stdata[p][i][0], stdata[p][i][1], stdata[p][i][2], stdata[p][i][3], stdata[p][i][4], stdata[p][i][5], stdata[p][i][6]))
+                format(table2, idx, comp_data[row][0], stdata[p][i][0], stdata[p][i][1], stdata[p][i][2], stdata[p][i][3], 					stdata[p][i][4], stdata[p][i][5], stdata[p][i][6]))
             idx += 1
 st.closeDB()
 ```
