@@ -32,3 +32,5 @@
 [day 14. 네이버 주가정보 크롤링 프로젝트](https://github.com/56unbreakable/TIL/blob/master/TIL/day14.md)
 
 [day 15. 네이버 주가정보 크롤링 프로젝트 2](https://github.com/56unbreakable/TIL/blob/master/TIL/day15.md)
+
+[day 16. 네이버 주가정보 크롤링 프로젝트 3](https://github.com/56unbreakable/TIL/blob/master/TIL/day16.md)
