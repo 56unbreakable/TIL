@@ -253,7 +253,7 @@ companyTable = 'company_info'
 stockTable = 'daily_price'
 
 # 데이터를 가져오기 위한 정보. header는 각자 컴퓨터에 맞는 header 사용
-header = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Whale/3.12.129.46 Safari/537.36'}
+header = {'User-Agent':''}
 url = "https://finance.naver.com/item/sise_day.nhn?code={}&page={}"
 page = 1
 
