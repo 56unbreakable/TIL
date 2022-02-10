@@ -78,4 +78,6 @@ SELECT * FROM daily_price;
 SELECT * FROM daily_price;
 SELECT count(*) FROM daily_price ;
 
-SELECT * from daily_price2 WHERE companyName = 'DL' and date >= '2020-11-25' AND date <= '2020-12-04';
+SELECT * from daily_price WHERE code = '005930' and date >= '2020-11-25' AND date <= '2022-02-04';
+# 10
+CREATE DATABASE INVESTAR10;
