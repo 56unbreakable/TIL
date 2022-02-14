@@ -39,4 +39,4 @@
 
 [day 18. 머신러닝 입문](https://github.com/56unbreakable/TIL/blob/master/TIL/day18.md)
 
-[day 19. DBupdater : 네이버 주가정보 크롤링 프로젝트](https://github.com/56unbreakable/TIL/blob/master/TIL/day19.md)
+[day 19. 머신러닝 연습 - 의사결정트리, k-fold cross validation ](https://github.com/56unbreakable/TIL/blob/master/TIL/day19.md)
