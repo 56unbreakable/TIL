@@ -257,7 +257,7 @@ k-fold의 단점을 보완한 것으로 불균형한 분포도를 가진 데이�
 
 `StratifiedKFold` 를 사용하면 라벨 데이터가 균등한 분포를 가진 상태로 fold가 나뉘게된다. 따라서 불균형한 데이터에서 발생하는 제대로 학습되지 않는 문제가 해결된다.
 
-`StratifiedKFold` 함수도 기본적인 구조는 일반적인 `KFold` 와 동일하다. 다만 `StratifiedKFold` 객체의 `split` 함수는 feature, label 두 가지 인자를 받아야한다.
+`StratifiedKFold` 함수도 기본적인 구조는 일반적인 `KFold` 와 동일하다. 다만 `StratifiedKFold` 객체의 `split` 함수는 feature, label 두 가지 인자를 받아야한다. `KFold` 의 경우 데이터의 분포를 신경쓰지 않고 fold를 나누기 때문에 feature만을 인자로 받을 수 있지만, `StratifiedKFold` 는 label의 분포를 고려해야 하기 때문에 `split` 함수를 실행할 때 인자로 넣어줘야 한다.
 
 ```python
 # stratified k-fold
