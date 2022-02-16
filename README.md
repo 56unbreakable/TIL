@@ -40,3 +40,5 @@
 [day 18. 머신러닝 입문](https://github.com/56unbreakable/TIL/blob/master/TIL/day18.md)
 
 [day 19. 머신러닝 연습 - 의사결정트리, k-fold cross validation ](https://github.com/56unbreakable/TIL/blob/master/TIL/day19.md)
+
+[day 20 Cross Validation, 데이터 전처리, 타이타닉 생존자 예측 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day20.md)
