@@ -23,7 +23,7 @@
 
 [day 10. 사이트 자동화 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day10.md)
 
-[day 11. 데이터베이스 생성 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day11.md)\
+[day 11. 데이터베이스 생성 ](https://github.com/56unbreakable/TIL/blob/master/TIL/day11.md)
 
 [day 12. SQL 기본쿼리](https://github.com/56unbreakable/TIL/blob/master/TIL/day12.md)
 
@@ -42,3 +42,5 @@
 [day 19. 머신러닝 연습 - 의사결정트리, k-fold cross validation ](https://github.com/56unbreakable/TIL/blob/master/TIL/day19.md)
 
 [day 20 Cross Validation, 데이터 전처리, 타이타닉 생존자 예측 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day20.md)
+
+[day 21 Confusion Matrix, Decision Tree 시각화](https://github.com/56unbreakable/TIL/blob/master/TIL/day21.md)
