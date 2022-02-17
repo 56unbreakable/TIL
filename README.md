@@ -1,6 +1,7 @@
 # Today I Learned
 + 매일매일 공부한 것을 기록한다.
-
++ 국비지원교육 수업시간에 들은 내용은 day00 파일에 정리한다
++ 그 외 스스로 공부한 내용은 wiki에 정리한다.
 
 ## TIL
 [day 1. git 사용법](https://github.com/56unbreakable/TIL/blob/master/TIL/day01.md)
