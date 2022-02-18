@@ -45,3 +45,5 @@
 [day 20 Cross Validation, 데이터 전처리, 타이타닉 생존자 예측 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day20.md)
 
 [day 21 Confusion Matrix, Decision Tree 시각화](https://github.com/56unbreakable/TIL/blob/master/TIL/day21.md)
+
+[day 22 랜덤포레스트, 앙상블](https://github.com/56unbreakable/TIL/blob/master/TIL/day22.md)
