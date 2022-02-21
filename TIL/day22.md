@@ -379,3 +379,25 @@ plt.show()
 ![image-20220218173444296](day22.assets/image-20220218173444296.png)
 
 여러 분류를 시도한 이후 오류에 대해서 가중치를 부여해 여러 모델을 결합하여 정확도가 높은 모델을 만들어낸다.
+
+`GradientBoostingClassifier` 패키지를 사용해 에이다부스트 모델을 생성할 수 있다.
+
+```python
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.metrics import accuracy_score
+import time
+import warnings
+warnings.filterwarnings('ignore')
+
+# 모델이 동작하는 시간 측정
+start_time = time.time()
+
+# 모델 학습 및 예측, 평가
+gb_clf = GradientBoostingClassifier(random_state=56)
+gb_clf.fir(x_train,y_train)
+pred = gb_clf.predict(x_test)
+gb_accuracy = accuracy_score(y_test,pred)
+print('GBM Accuracy : {:.4f}'.format(gb_accuracy))
+print('GBM Runtime {:.1f}'.format(time.time() - start_time))
+```
+
