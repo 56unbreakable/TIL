@@ -49,3 +49,5 @@
 [day 22 랜덤포레스트, 앙상블](https://github.com/56unbreakable/TIL/blob/master/TIL/day22.md)
 
 [day 23 회귀분석](https://github.com/56unbreakable/TIL/blob/master/TIL/day23.md)
+
+[day 24 딥러닝](https://github.com/56unbreakable/TIL/blob/master/TIL/day24.md)
