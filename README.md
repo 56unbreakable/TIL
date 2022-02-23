@@ -51,3 +51,5 @@
 [day 23 회귀분석](https://github.com/56unbreakable/TIL/blob/master/TIL/day23.md)
 
 [day 24 딥러닝](https://github.com/56unbreakable/TIL/blob/master/TIL/day24.md)
+
+[day 25 딥러닝 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day25.md)
