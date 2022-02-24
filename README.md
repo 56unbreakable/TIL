@@ -53,3 +53,5 @@
 [day 24 딥러닝](https://github.com/56unbreakable/TIL/blob/master/TIL/day24.md)
 
 [day 25 딥러닝 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day25.md)
+
+[day 26 딥러닝 실습 2(과적합 방지), 영화 리뷰 데이터 분석](https://github.com/56unbreakable/TIL/blob/master/TIL/day26.md)
