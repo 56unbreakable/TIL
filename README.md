@@ -3,6 +3,9 @@
 + 국비지원교육 수업시간에 들은 내용은 day00 파일에 정리한다
 + 그 외 스스로 공부한 내용은 wiki에 정리한다.
 
+## 자격증 공부
+[sqld 공부][https://github.com/56unbreakable/TIL/blob/master/SQL study/sqld.md]
+
 ## TIL
 [day 1. git 사용법](https://github.com/56unbreakable/TIL/blob/master/TIL/day01.md)
 
@@ -57,5 +60,3 @@
 [day 26 딥러닝 실습 2(과적합 방지), 영화 리뷰 데이터 분석](https://github.com/56unbreakable/TIL/blob/master/TIL/day26.md)
 
 [day 27 딥러닝 실습 3, 영화리뷰 데이터 분석, 뉴스기사 데이터 분석](https://github.com/56unbreakable/TIL/blob/master/TIL/day27.md)
-
-[day 28 SQL 공부](https://github.com/56unbreakable/TIL/blob/master/TIL/day2.md)
