@@ -4,7 +4,7 @@
 + 그 외 스스로 공부한 내용은 wiki에 정리한다.
 
 ## 자격증 공부
-[sqld 공부][https://github.com/56unbreakable/TIL/blob/master/SQL%20study/sqld.md]
+[sqld 공부](https://github.com/56unbreakable/TIL/blob/master/SQL%20study/sqld.md)
 
 ## TIL
 [day 1. git 사용법](https://github.com/56unbreakable/TIL/blob/master/TIL/day01.md)
