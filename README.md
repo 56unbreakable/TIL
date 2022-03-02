@@ -6,8 +6,6 @@
 ## 자격증 공부
 [sqld 공부](https://github.com/56unbreakable/TIL/wiki/sqld-%EA%B3%B5%EB%B6%80)
 
-[알고리즘 공부](https://github.com/56unbreakable/TIL/wiki/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-
 ## TIL
 [day 1. git 사용법](https://github.com/56unbreakable/TIL/blob/master/TIL/day01.md)
 
