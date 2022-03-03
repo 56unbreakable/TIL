@@ -1,10 +1,8 @@
 n = int(input())
 
 for j in range(n):
-    if(j % 2 == 1):
-        for i in range(n):
-            print(" *", end="")
+    if j % 2 == 1:
+        print(" *"*n,end="")
     else:
-        for i in range(n):
-            print("* ", end="")
+        print("* "*n,end="")
     print()

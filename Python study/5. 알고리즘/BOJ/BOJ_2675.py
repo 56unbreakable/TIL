@@ -1,8 +1,7 @@
-testcaseNum = int(input())
+testcase_num = int(input())
 
-for i in range(testcaseNum):
+for i in range(testcase_num):
     num, s = input().split()
     for j in s:
-        for k in range(int(num)):
-            print(j,end="")
+        print(j * int(num),end="")
     print()
