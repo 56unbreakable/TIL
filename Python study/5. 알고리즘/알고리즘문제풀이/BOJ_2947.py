@@ -1,4 +1,4 @@
-wood = list(map(int, input().split()))
+""" wood = list(map(int, input().split()))
 
 sort_incomplete = True
 
@@ -23,5 +23,20 @@ while(sort_incomplete):
         for i in range(5):
             print(wood[i], end=" ")
         print()
+    if sorted(wood) == wood:
+        sort_incomplete = False """
+
+
+wood = list(map(int, input().split()))
+
+sort_incomplete = True
+
+while(sort_incomplete):
+    for i in range(4):
+            if wood[i] > wood[i+1]:
+                wood[i], wood[i+1] = wood[i+1], wood[i]
+                for j in range(5):
+                    print(wood[j], end=" ")
+                print()
     if sorted(wood) == wood:
         sort_incomplete = False
