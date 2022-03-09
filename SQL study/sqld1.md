@@ -742,3 +742,416 @@ DELETE FROM A
 
 #### SELECT
 
+1. SELECT문 사용
+
+   `*` 은 모든 데이터를 의미한다. `SELECT 원하는칼럼 FROM 조회를원하는테이블` 형식으로 사용한다. 조건절을 사용할 시 조건문에 있는 행만 조회한다.
+
+   ```SQL
+   SELECT * FROM EMP
+   	WHERE 사원번호 = 100;
+   ```
+
+   칼럼 지정. `|| "원하는문자"` 형식은 정보 뒤에 원하는 문자를 붙여 출력한다.
+
+   ```SQL
+   SELECT ENAME || "님" FROM EMP;
+   ```
+
+2. ORDER BY를 사용한 정렬
+
+   `SELECT` 를 사용시 정렬할 수 있다. 오름차순(기본지정) 혹은 내림차순(`DESC` 로 설정)으로 정렬한다. 정렬은 메모리 소모가 커서 성능저하가 발생할 수 있다.
+
+   ```SQL
+   SELECT * FROM EMP
+   	ORDER BY ENAME, SAL DESC;
+   ```
+
+   `ENAME` `SAL` 을 내림차순으로 정렬한다는 코드
+
+3. INDEX를 이용한 정렬회피.
+
+   ```SQL
+   SELECT /*+ INDEX_DESC(A)*/
+   FROM EMP A;
+   ```
+
+   기본키를 이용하면 위 코드를 사용해 정렬을 한 상태로 조회하여 `order by` 를 회피할 수 있다.
+   
+4. distinct 와 alias
+
+   + distinct
+
+     칼럼명 앞에 지정하여 중복데이터를 한번만 조회하게 한다
+
+     ```sql
+     SELECT DISTINCT * FROM A;
+     ```
+
+   + alias(별칭)
+
+     테이블명이나 칼럼이 너무 길어서 간략하게 할 떄 사용한다.
+
+     ```sql
+     SELECT ENAME AS "이름" FROM EMP A
+     ```
+
+     `ENAME` 대신에 `이름` 을 사용, `EMP` 대신에 `A` 사용
+
+
+
+### WHERE
+
+1. 비교연산자 : >, <, <=, >= ,=
+2. 부정비교연산자 : !=, ^= <>, NOT 칼럼명 =(여기까지는 같지 않은 것), NOT 칼럼명 >(크지 않은 것)
+3. 논리연산자 `AND` `OR` `NOT` 
+4. SQL 연산자 `LIKE %비교문자열%` `BETWEEN A AND B`(A와 B값 사이) `IN`(OR을 의미하며 하나만 일치해도 조회) `IS NULL`(NULL값 조회)
+
+#### LIKE문
+
+`TEST` 로 시작하는 모든 데이터 조회
+
+```SQL
+SELECT * FORM A
+WHERE E LIKE 'TEST%';
+```
+
+1로 끝난 ㄴ모든 데이터 조회
+
+```SQL
+SELECT * FORM A
+WHERE E LIKE '%1';
+```
+
+중간에 `EST`가 있는 모든 데이터 조회
+
+```SQL
+SELECT * FORM A
+WHERE E LIKE '%EST%';
+```
+
+#### BETWEEN문
+
+1000이상 2000이하 조회
+
+```SQL
+SELECT * FROM A
+WHERE SAL BETWEEM 1000 AND 2000;
+```
+
+1000미만 2000초과 조회
+
+```SQL
+SELECT * FROM A
+WHERE SAL NOT BETWEEM 1000 AND 2000;
+```
+
+#### IN문
+
+여러개의 칼럼에 대한 조건 지정
+
+`(JOB, ENAME)` 이`('CLERK','TEST1')` 이거나 `('MANAGER','TEST4')` 인 칼럼을 찾는 것.
+
+```SQL
+SELECT * FROM A
+WHERE (JOB, ENAME)
+IN (('CLERK','TEST1'),('MANAGER','TEST4'))
+```
+
+#### NULL값 조회
+
+1. NULL의 특징 : 모르는값, 값의부재. `NULL` 과 연산을하면 `NULL`. 비교시 알 수 없음이 반환
+2. `NULL` 조회시 `IS NULL` 사용, 아닌값을 조회시 `IS NOT NULL` 사용
+3. 관련함수
+   + NVL : `NULL` 이면 다른 값으로 바꾸는 함수. `NVL(MGR,0)` 는 `MGR` 이 `NULL` 이면 0으로 변환한다는 뜻
+   + NVL2 : `NVL2(MGR,1,0)` 은 `NULL` 이 아니면 1, `NULL` 이면 0 반환
+   + NULLIF : 두 값이 같으면 `NULL`, 다르면 첫 번째 값 반환. `NULLIF(EXP1, EXP2)` 일때 `EXP1` 과 `EXP2` 가 같으면 `NULL` 을 반환, 아니면 `EXP1` 반환
+   + COALESCE : `NULL` 이 아닌 최초의 인자값을 반환. `COALESCE(A, B, C)` 면 `A` 가`NULL` 이 아니면 `A` 를 반환. 만약 `A` 가 `NULL` 이고 `B` 가 `NULL`이 아니면 `B` 반환.
+
+
+
+### GROUP 연산
+
+#### GROUP BY
+
++ 테이블에서 소규모 행을 그룹화하여 계산.
++ `HAVING`구에 조건문 사용
++ `ORDER BY` 를 사용해 정렬.
+
+`A` 로 그룹을 만들어 `B` 의 값을 합산하는 코드. `A` 로 그룹지어진 그룹마다 연산 실행. `A` 별 `B` 의 합계가 출력된다.
+
+```SQL
+SELECT A, SUM(B)
+	FROM EMP
+GROUP BY (A);
+```
+
++ 부서별, 관리자별 급여평균 계산하고 급여평균이 1000 이상인 행 조회
+
+  ```SQL
+  SELECT DEPTNO, MGR, AVG(SAL) FROM EMP
+  GROUP BY DEPTNO, MGR
+  HAVING AVG(SAL) > 1000;
+  ```
+
+#### HAVING
+
+`GROUP BY` 에 조건절을 사용하려면 `HAVING` 을 사용해야한다. 만약 `WHERE` 를 사용하면 조건문을 충족하지 못하는 데이터는 `GROUP BY` 대상에서 제외된다.
+
+`A` 로 그룹을 지어서 그룹별 `B` 의 합계를 구한다. 이때, `B` 의 합계가 1000이상인 절을 출력한다.
+
+```SQL
+SELECT A,SUM(B) FROM E
+GROUP BY A
+HAVING SUM(B) > 1000;
+```
+
+#### 집계함수 종류
+
++ COUNT : 행 수를 조회한다. `COUNT(*)` 은 `NULL` 값을 포함한 모든 행을 계산한다. `COUNT(칼럼명)` 은 `NULL` 값을 제외한 행 수를 계산한다.
++ SUM : 합계를 계산한다.
++ AVG : 평균을 계산한다.
++ MAX, MIN : 최대, 최소값 계산
++ STDDEV : 표준편차 계산
++ VARIAN : 분산 계산
+
+
+
+### SELECT 문 실행 순서
+
+조회된 데이터를 이해하는데 아주 중요한 요소이다.
+
+실행순서 (FWGHSOB)
+
+1. FROM
+2. WHERE
+3. GROUP BY
+4. HAVING
+5. SELECT
+6. ORDER BY
+
+
+
+### 명시적 형 변환과 암시적 형 변환
+
+#### 형변환
+
+두 개의 데이터의 데이터 타입이 일치하도록 변환하는 것.
+
+숫자와 문자열, 문자열과 날짜형의 비교와 같이 데이터 타입이 불일치할 떄 발생
+
+#### 명시적 형 변환
+
+형 변환 함수를 사용해서 데이터 타입을 일치시키는 것으로 형변환 함수를 사용
+
+1. TO_NUMBER(문자열) : 문자열을 숫자로 변환
+2. TO_CHAR(숫자 혹은 날짜, [FORMAT]) : 숫자 혹은 날짜를 지정된 FORMAT의 문자로 변환
+3. TO_DATE(문자열, FORMAT) : 문자열을 지정된 FORMAT의 날짜형으로 변환한다.
+
+#### 암시적 형변환
+
+개발자가 형 변환을 하지 않은 경우 데이터베이스 관리 시스템이 자동으로 형변환 하는 것을 의미한다.
+
+__인덱스 칼럼에 형변환을 수행하면 인덱스를 사용하지 못한다__
+
+인덱스는 변형이 발생하면 기본적으로 사용하지 못한다. 형변환이 이루어지면 사용할 수 없다.
+
+
+
+### 내장형 함수
+
+모든 DB에는 `SQL` 에서 사용할 수 있는 내장형 함수를 가지고있다.
+
+내장형 함수는 데이터베이스 관리 시스템 밴더별로 약간의 차이가 있지만 거의 비슷하다.
+
+#### DUAL 테이블
+
+`DUAL 테이블` 은 오라클 DB에 의해 자동으로 생성되는 테이블.
+
+#### 내장형 함수
+
++ 문자열 함수
+  + ASCII(문자) : 문자 혹은 숫자를 `ASCII` 코드값으로 변환
+  + CHAR(ASCII 코드값) : `ASCII` 코드값을 문자로 변환
+  + SUBSTR(문자열, M, N) : 문자열의 M번째 위치부터 N개를 자른다.
+  + CONCAT(문자열1, 문자열2) : `문자열1` 과 `문자열2` 를 결합한다.
+  + LOWER(문자열) : 영문자를 소문자로 변환한다. `UPPER` 는 대문자로 변환한다.
+  + LEN(문자열) : 문자열의 길이를 알려준다.
+  + LTRIM(문자열, 지정문자) : 왼쪽에서 지정문자를 삭제한다. 지정된 문자를 삭제하면 공백을 삭제한다.
+  + RTRIM(문자열, 지정문자) : 오른쪽에서 지정문자를 삭제한다. 지정된 문자를 삭제하면 공백을 삭제한다.
+  + TRIM(문자열, 지정문자) : 지정문자를 삭제한다. 지정된 문자를 삭제하면 공백을 삭제한다.
++ 날짜형 함수
+  + SYSDATE : 오늘의 날짜를 날짜 타입으로 알려준다.
+  + EXTRACT('YEAR' | 'MONTH' | 'DAY FROM DUAL') : 날짜에서 년, 월, 일을 조회한다.
++ 숫자형 함수
+  + ABS(숫자) : 절대값을 돌려준다
+  + SIGN(숫자) : 양수, 음수, 0을 구별한다.
+  + MOD(숫자1, 숫자2) : `숫자1` 을 `숫자2` 로 나누어 나머지를 계산한다. %도 사용 가능하다.
+  + CEIL(숫자) : 숫자보다 크거나 같은 최소의 정수를 돌려준다.
+  + FLOOR(숫자) : 숫자보다 작거나 같은 최대의 정수를 돌려준다.
+  + ROUND(숫자, M) : 소수점 `M` 번째 자리에서 반올림한다. 기본값은 0이다
+  + TRUNC(숫자, M) : 소수점  `M` 자리에서 절삭한다. 기본값은 0이다.
+
+
+
+### DECODE, CASE
+
+#### DECODE
+
+IF문을 구현할 수 있다. 특정 조건이 참이면 A, 거짓이면 B로 응답한다.
+
+`A = 1000` 이면 `TRUE` 아니면 `FALSE`
+
+```SQL
+DECODE(A,1000,'TRUE','FALSE')
+```
+
+#### CASE
+
+조건을 `WHEN` 구에 사용하고 `THEN` 구는 해당 조건이 참이면 실행되고 거짓이면 `ELSE` 구가 실행된다.
+
+```SQL
+CASE[A]
+	WHEN B = 100 THEN RESULT1
+	WHEN B = 200 THEN RESULT2
+	WHEN B = 300 THEN RESULT3
+	ELSE RESULT4
+END
+```
+
+
+
+### ROWNUM, ROWID
+
+#### ROWNUM
+
+데이터베이스의 `SELECT` 결과에 대해서 논리적인 일련번호를 부여한다. 조회되는 행 수를 제한할 때 사용된다. 
+
+만약 페이지 단위 출력을 하기 위해서는 인라인 뷰를 사용해야한다.
+
++ 인라인 뷰 : `SELECT` 문에서 `FROM` 절에 사용되는 서브쿼리를 의미한다.
+
+  ```SQL
+  SELECT * FROM # MAIN QUERY
+  (SELECT * FROM EMP) A; # SUB QUERY(인라인 뷰)
+  ```
+
+한 행을 조회할 경우
+
+```SQL
+SELECT * FROM A
+WHERE ROWNUM <= 1;
+```
+
+인라인 뷰 사용. `ROWNUM` 에 별칭 `LIST` 를 사용하여 `LIST` 로 행 조회수를 제한한다.
+
+```SQL
+SELECT *
+FROM (SELECT ROWNUM LIST, ENAME FROM EMP)
+WHERE LIST <= 5;
+```
+
+웹페이지 형식처럼 특정 구간 조회도 가능하다.
+
+```SQL
+SELECT *
+FROM (SELECT ROWNUM LIST, ENAME FROM EMP)
+WHERE LIST BETWEEN 5 AND 10;
+```
+
+#### ROWID
+
+데이터베이스 내에서 데이터를 구분할 수 있는 유일한 값이다. `ROWID` 를 통해 데이터가 어떤 데이터파일, 블록에 저장되어 있는지 알 수 있다.
+
+
+
+### WITH
+
+서브쿼리를 사용해서 임시 테이블이나 뷰처럼 사용할 수 있는 구문이다.
+
+서브쿼리 블록에 별칭을 지정할 수 있다. 옵티마이저는 SQL을 인라인 뷰나 임시테이블로 판단한다.
+
+서브쿼리를 사용해서 임시테이블을 만든다.
+
+```SQL
+WITH VIEWDATA AS(
+SELECT * FROM EMP
+	UNION ALL
+SELECT * FROM EMP
+)
+SELECT * FROM VIEWDATA WHERE EMPNO = 1000;
+```
+
+
+
+### DCL(Data Control Language)
+
+#### GRANT
+
+데이터베이스 사용자에게 권한을 부여한다.
+
+```SQL
+GRANT 권한 ON 테이블명 TO USER;
+```
+
++ 권한
+  + SELECT : 해당 명령어에 대한 권한 부여
+  + INSERT :해당 명령어에 대한 권한 부여
+  + UPDATE : 해당 명령어에 대한 권한 부여
+  + DELETE : 해당 명령어에 대한 권한 부여
+  + REFERENCES : 테이블을 참조하는 제약조건을 생성하는 권한 부여
+  + ALTER : 테이블 수정 권한 부여
+  + INDEX : 인덱스 생성 권한 부여
+  + ALL : 모든 권한 부여
++ WITH GRANT OPTION : 특정 사용자에게 권한을 부여할 수 있는 권한을 준다. A사용자가  B사용자에게 권한을 주고, B가 C에게 권한을 줬을 때, A가 B에게서 권한을 뺏으면 C의 권한도 회수된다.
++ WITH ADMIN OPTION : 테이블에 대한 모든 권한을 부여한다. A가 B에게 권한을 주고, B가 C에게 권한을 줬을 때, A가 B에게서 권한을 취소하면 B의 권한만 사라지고 C의 권한은 사라지지 않는다.
+
+#### REVOKE
+
+데이터베이스 사용자에게 부여된 권한을 회수한다.
+
+```SQL 
+REVOKE 권한 ON 테이블명 FROM USER;
+```
+
+
+
+### TCL (Transation Control Language)
+
+#### COMMIT
+
+변경한 데이터를 데이터베이스에 반영한다. 변경 이전 데이터는 잃어버린다. A -> B 이면 A는 사라진다.
+
+`COMMIT` 이 완료되면 데이터베이스 변경으로 인한 잠금이 해제된다. 다른 모든 사용자는 변경된 데이터를 조작할 수 있다.
+
+`COMMIT` 은 하나의 트랜잭션 과정을 종료한다.
+
+---
+
+`INSERT` `UPDATE` `DELETE` 가 트랜잭션 ------ `COMMIT` -----> 변경 후 데이터를 데이터베이스에 저장
+
+---
+
+`AUTO COMMIT` 은 프로그램을 정상적으로 종료하는경우 자동으로 `COMMIT` 을 실행한다.
+
+#### ROLLBACK
+
+변경 사용을 모두 취소하고 트랜잭션을 종료한다.
+
+다만 `COMMIT` 한 곳까지만 복구한다.
+
+`ROLLBACK` 을 실행하면 잠금이 해제되고 다른 사용자도 데이터베이스 행을 조작할 수 있다.
+
+#### SAVEPOINT
+
+트랜잭션을 작게 분할하여 관리하는 것으로 지정된 위치 이후의 트랜잭션만  `ROLLBACK` 이 가능하다.
+
+지정된 `SAVEPOINT` 까지 데이터 변경을 취소하고 싶다면 `ROLLBACK TO SAVEPOIT이름` 으로 실행한다.
+
+그냥 `ROLLBACK` 을 사용하면 `SAVEPOIT` 와 관계없이 데이터의 모든 변경사항을 저장하지 않는다.
+
+
+
+171부터
+
+## SQL 활용
+
