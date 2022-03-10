@@ -62,3 +62,5 @@
 [day 27 딥러닝 실습 3, 영화리뷰 데이터 분석, 뉴스기사 데이터 분석](https://github.com/56unbreakable/TIL/blob/master/TIL/day27.md)
 
 [day 28 openCV](https://github.com/56unbreakable/TIL/blob/master/TIL/day28.md)
+
+[day 29 CNN 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day29.md)
