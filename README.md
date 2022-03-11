@@ -64,3 +64,5 @@
 [day 28 openCV](https://github.com/56unbreakable/TIL/blob/master/TIL/day28.md)
 
 [day 29 CNN 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day29.md)
+
+[day 30 자연어 처리](https://github.com/56unbreakable/TIL/blob/master/TIL/day30.md)
