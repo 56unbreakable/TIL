@@ -66,3 +66,5 @@
 [day 29 CNN 실습](https://github.com/56unbreakable/TIL/blob/master/TIL/day29.md)
 
 [day 30 자연어 처리](https://github.com/56unbreakable/TIL/blob/master/TIL/day30.md)
+
+[day 31 자연어 처리 - 데이터 전처리 : 토큰화](https://github.com/56unbreakable/TIL/blob/master/TIL/day31.md)
