@@ -74,3 +74,5 @@
 [day 33 자연어 처리 - 데이터 전처리 : 정수인코딩, 원핫인코딩](https://github.com/56unbreakable/TIL/blob/master/TIL/day33.md)
 
 [day 34 자연어 처리 - 카운트 기반 단어표현, DTM](https://github.com/56unbreakable/TIL/blob/master/TIL/day34.md)
+
+[day 35 자연어 처리 - Word Cloud, TF-IDF](https://github.com/56unbreakable/TIL/blob/master/TIL/day35.md)
