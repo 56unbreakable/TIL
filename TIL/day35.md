@@ -257,3 +257,91 @@ wc.sort_values("빈도",ascending=False).head()
   + 많고 적음의 편차가 생기는 것을 수치화 한 것이 분산
   + 각 문서마다 단어들의 분산이 다르다.
   + 주제를 가정하면 단어들의 분산을 설명할 수 있다.
+
+#### 기본 아이디어
+
+`m x n` 행렬은 다음과 같이 성립한다.
+
+`m x k  *  k x n` `m`행 `k`열 행렬과 `k`행 `n`열 행렬의 곱으로 나타낼 수 있다.
+
+단어문서 행렬 `X` 를 `Z*W` 의 형태로 표현한다. 이로써 차원축소가 되며, 단어보다 주제의 수가 적어지게된다.
+
+즉, LSA는 차원축소 기법이다.
+
+### 실습
+
+실습에 사용할 데이터 : `wget.download("https://github.com/euphoris/datasets/raw/master/neurips.zip")`
+
+#### 전처리
+
+``` python
+# 데이터 로드
+import pandas as pd
+df = pd.read_csv("neurips.zip")
+df.head() 
+
+# TF-IDF 생성
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+cv = TfidfVectorizer(stop_words="english",max_features=2000)
+x = cv.fit_transform(df.abstract)
+words = cv.get_feature_names()
+```
+
+#### SVD
+
+```python
+from sklearn.decomposition import TruncatedSVD
+
+svd = TruncatedSVD(n_components=100,random_state=1234)
+svd.fit(x)
+word_idx = words.index("topic")
+topic_idx = svd.components_[:,word_idx].argmax()
+topic = pd.DataFrame({"word":words,"loading":svd.components_[topic_idx]})
+topic.sort_values("loading").tail()
+```
+
+
+
+### 회전
+
+가중치의 제곱의 분산을 최대화하도록 회전한다.
+
+그 이유는 하나의 주제는 소수의 단어에만 높은 가중치를 주는데, 단순한 구조를 가지게 되어 해석이 쉽게한다. 
+
+주제가 있고 단어가 있는데 주제별로 단어를 해석하다보니 너무 어려워 의미없는 단어를 날려서 해석한다.
+
+#### 사전 준비
+
+회전을 하기위한 패키지를 설치한다.
+
+`!pip install factor_analyzer`
+
+```python
+from factor_analyzer.rotator import Rotator
+
+# 초기화
+rotator = Rotator()
+```
+
+`fit_transform` 함수는 단어가 행이고 주제가 열이어야한다. 그러나 svd는 단어가 열이고 주제가 행이기때문에 .T로 바꿔준다.
+
+```python
+rot = rotator.fit_transform(svd.components_.T)
+
+# 행과 열을 바꾸었기 때문에 다시 바꿔준다.
+loading = rot.T
+```
+
+`topic`이라는 단어에 대해서 확인해본다.
+
+```python
+word_idx = words.index("topic")
+
+from matplotlib import pyplot
+
+pyplot.tick_params(color = "white",colors = "white")
+pyplot.plot(loading[:,word_idx])
+```
+
+![image-20220321174921129](day35.assets/image-20220321174921129.png)
+
