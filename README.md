@@ -76,3 +76,5 @@
 [day 34 자연어 처리 - 카운트 기반 단어표현, DTM](https://github.com/56unbreakable/TIL/blob/master/TIL/day34.md)
 
 [day 35 자연어 처리 - Word Cloud, TF-IDF](https://github.com/56unbreakable/TIL/blob/master/TIL/day35.md)
+
+[day 36 언어모형](https://github.com/56unbreakable/TIL/blob/master/TIL/day36.md)
