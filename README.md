@@ -78,3 +78,5 @@
 [day 35 자연어 처리 - Word Cloud, TF-IDF](https://github.com/56unbreakable/TIL/blob/master/TIL/day35.md)
 
 [day 36 언어모형](https://github.com/56unbreakable/TIL/blob/master/TIL/day36.md)
+
+[day 37 단어임베딩](https://github.com/56unbreakable/TIL/blob/master/TIL/day37.md)
