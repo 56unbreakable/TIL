@@ -82,3 +82,5 @@
 [day 37 단어임베딩](https://github.com/56unbreakable/TIL/blob/master/TIL/day37.md)
 
 [day 38 FastText를 이용한 단어임베딩](https://github.com/56unbreakable/TIL/blob/master/TIL/day38.md)
+
+[day 39 순환신경망](https://github.com/56unbreakable/TIL/blob/master/TIL/day39.md)
