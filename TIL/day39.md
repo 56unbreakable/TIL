@@ -68,10 +68,13 @@ ht는 (-1 ~ 1) 의 범위를 가진다. 1보다 작기 때문에 계속 곱해�
 
   토큰화했던 파일 불러오기.
 
+  `tk` 는 리뷰데이터에 있는 단어를 많이 나오는 순서대로 정렬한 이후, 2000개의 단어를 뽑아서 토큰화한 것이다.
+
   ```python
   import joblib
   
-  tk = joblib.load("tokenizer.pkl")
+  tk = joblib.load("tokenizer.pkl")\
+  tk.index_word[148]
   ```
 
 + 훈련,테스트 데이터셋 나누기
@@ -105,7 +108,11 @@ ht는 (-1 ~ 1) 의 범위를 가진다. 1보다 작기 때문에 계속 곱해�
 
 ### 순방향 순환신경망
 
-#### 신경망 모형 만들기
+#### LSTM 신경망 모형 만들기
+
++ Embedding : `NUM_WORDS+1` 개의 단어가 인덱스로 출력된다. 한개의 단어당 8개의 벡터를 출력한다. `mask_zero` 옵션은 0을 무시하는 옵션이다.
++ LSTM : LSTM 모델을 사용한다. 마지막에 8차원으로 변환하여 출력한다.
++ Dense : 출력은 0 or 1이기때문에 1개이다.
 
 ```python
 model = tf.keras.Sequential([tf.keras.layers.Embedding(NUM_WORDS,8,mask_zero=True),
@@ -121,6 +128,8 @@ model.summary()
 
 위 모델은 아직 데이터가 들어가지 않은 껍데기 모델이다. `None` 으로 처리되어있는 부분은 데이터가 들어갈 부분이다.
 
+들어온 단어를 각 단어당 8벡터씩 처리를한다.
+
 #### 모델 학습
 
 ```python
@@ -135,9 +144,51 @@ model.fit(pads,y_train.values,epochs=10)
 
 ### 역방향 순환신경망
 
+패딩을 `post` 로 바꿔준다.
+
+```python
+pads = tf.keras.preprocessing.sequence.pad_sequences(seqs,maxlen = None, padding = "post", truncating= "pre")
+```
+
+#### 모델 생성
+
+`go_backword` 옵션을 설정하여 역방향으로 방향을 설정한다.
+
+```python
+model = tf.keras.Sequential([tf.keras.layers.Embedding(NUM_WORDS,8,mask_zero=True),
+                             tf.keras.layers.LSTM(8, go_backwards=True),
+                             tf.keras.layers.Dense(1, activation="sigmoid")])
+```
+
+#### 모델학습
+
+```python
+model.compile(loss="binary_crossentropy",optimizer="adam",metrics=["accuracy"])
+```
+
+```python
+model.fit(pads,y_train.values,epochs=10)
+```
+
 
 
 ### 양방향 순환신경망
 
+#### 모델생성
 
+`Bidirectional` 함수로 양방향 모델을 만들 수 있다.
+
+```python
+model = tf.keras.Sequential([tf.keras.layers.Embedding(NUM_WORDS,8,mask_zero=True),
+                             tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(8)),
+                             tf.keras.layers.Dense(1, activation="sigmoid")])
+```
+
+```python
+model.compile(loss="binary_crossentropy",optimizer="adam",metrics=["accuracy"])
+```
+
+```python
+model.fit(pads,y_train.values,epochs=10)
+```
 
