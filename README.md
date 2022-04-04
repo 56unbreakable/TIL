@@ -86,3 +86,5 @@
 [day 39 순환신경망](https://github.com/56unbreakable/TIL/blob/master/TIL/day39.md)
 
 [day 40 자연어 생성](https://github.com/56unbreakable/TIL/blob/master/TIL/day40.md)
+
+[day 41 자연어 생성 - 준단어토큰화](https://github.com/56unbreakable/TIL/blob/master/TIL/day41.md)
