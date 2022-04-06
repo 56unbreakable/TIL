@@ -90,3 +90,5 @@
 [day 41 자연어 생성 - 준단어토큰화](https://github.com/56unbreakable/TIL/blob/master/TIL/day41.md)
 
 [day 42 언어모형](https://github.com/56unbreakable/TIL/blob/master/TIL/day42.md)
+
+[day 43 언어모형](https://github.com/56unbreakable/TIL/blob/master/TIL/day43.md)
