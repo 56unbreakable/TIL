@@ -3,6 +3,8 @@
 + 국비지원교육 수업시간에 들은 내용은 day00 파일에 정리한다
 + 그 외 스스로 공부한 내용은 wiki에 정리한다.
 
+## [알고리즘 바로가기](https://github.com/56unbreakable/TIL/wiki/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B0%94%EB%A1%9C%EA%B0%80%EA%B8%B0)
+
 ## 자격증 공부
 [sqld 공부](https://github.com/56unbreakable/TIL/wiki/sqld-%EA%B3%B5%EB%B6%80)
 
