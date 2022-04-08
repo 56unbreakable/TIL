@@ -20,7 +20,7 @@ __2. 제목과 본문을 빈 행으로 분리__
 
 + 커밋 메세지 템플릿을 작성한 이후(나의 경우는 .gitmessage.txt 로 작성)
 
-  `git config --global commit.template <.gitmessage.txt 경로>`
+  `git config --local commit.template <.gitmessage.txt 경로>`
 
   다음과 같은 코드를 사용해 추가한다.
 
