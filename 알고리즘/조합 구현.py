@@ -1,3 +1,7 @@
+# 조합
+from unittest import result
+
+
 def combination(arr, r):
     # 1.
     arr = sorted(arr)
@@ -20,9 +24,30 @@ def combination(arr, r):
     generate([])
     return result
 
-arr = [[1,2],[3,4],[5,6],[7,8]]
+# 순열
+def permutation(arr, r):
+    # 1.
+    arr = sorted(arr)
+    used = [0 for _ in range(len(arr))]
+    result = []
+    def generate(chosen, used):
+        # 2.
+        if len(chosen) == r:
+            result.append(chosen[:])
+            return
+	# 3.
+        for i in range(len(arr)):
+            if not used[i]:
+                chosen.append(arr[i])
+                used[i] = 1
+                generate(chosen, used)
+                used[i] = 0
+                chosen.pop()
+    generate([], used)
+    return result
 
-print(combination(arr,3))
+k = permutation([1,2,3],3)
+print(k)
 
 # 왜 result.append(chosen)이 아니라 result.append(chosen[:])를 사용하느냐?
 # 전자를 사용하면 chosen과 result가 같은 주소를 참조하기 때문에 chosen이 바뀌면 result도 바뀜
