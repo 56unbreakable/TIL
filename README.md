@@ -15,6 +15,8 @@
 
 [day 46 BART](https://github.com/56unbreakable/TIL/blob/master/TIL/day46.md)
 
+[day47 LSTM](https://github.com/56unbreakable/TIL/blob/master/TIL/day46.md)
+
 ## TIL
 [day 1. git 사용법](https://github.com/56unbreakable/TIL/blob/master/TIL/day01.md)
 
