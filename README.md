@@ -9,15 +9,6 @@
 ## 자격증 공부
 [sqld 공부](https://github.com/56unbreakable/TIL/wiki/sqld-%EA%B3%B5%EB%B6%80)
 
-## 프로젝트 공부
-[day 44 LSA](https://github.com/56unbreakable/TIL/blob/master/TIL/day44.md)
-
-[day 45 BERT](https://github.com/56unbreakable/TIL/blob/master/TIL/day45.md)
-
-[day 46 BART](https://github.com/56unbreakable/TIL/blob/master/TIL/day46.md)
-
-[day 47 LSTM](https://github.com/56unbreakable/TIL/blob/master/TIL/day47.md)
-
 ## TIL
 [day 1. git 사용법](https://github.com/56unbreakable/TIL/blob/master/TIL/day01.md)
 
