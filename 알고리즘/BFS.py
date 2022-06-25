@@ -27,3 +27,24 @@ def dfs(graph,root,dest):
     result_depth = depth_chart[dest]
     # 방문 순서를 반환하고싶다면 visited를 반환하면 됨
     return result_depth
+
+# bfs
+# depth_chart에 깊이를 저장
+# 경로를 구하려면 다익스트라 사용, 최단거리를 구할경우 bfs사용
+def bfs(graph, root, dest):
+    q = deque()
+    visited = deque()
+    q.append(root)
+    depth_chart = dict()
+    depth_chart[root] = 1  # 루트노드의 뎁스를 1이라고 가정할경우. 0이면 0으로 설정
+    
+    while q:
+        curr = q.popleft()
+        visited.append(curr)
+
+        for next in graph(curr):
+            if next not in q and next not in visited:
+                q.append(next)
+                depth_chart[next] = depth_chart[curr] + 1
+    
+    return depth_chart
